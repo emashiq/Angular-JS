@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html data-ng-app="">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Angular Starting</title>
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<script src="../angular.js" type="text/javascript" charset="utf-8" async defer></script>
+</head>
+<body data-ng-init="names=[{name:'Ashiqur Rahman',city:'Dhaka'},{name:'Ashiqur Rahman',city:'Ashulia'}]">
+<!-- Basic Starting With Angular -->
+<div class="container-fluid">
+	<div class="form-group">
+		<div class="col-md-4">
+			<label for="Price">Price of each product</label>
+			<input type="number" data-ng-model="price" class="form-control"/>
+		</div>	
+	<div class="col-md-4">
+		<label for="Price">Quantity</label>
+		<input type="number" data-ng-model="quantity" class="form-control"/>
+	</div>	
+</div>
+	<br>
+		<p>Total Ammout: {{price*quantity}}Tk</p>
+<!-- NG Repeat Trial -->
+	<div>
+		<div class="">
+			<label for="Name">Name</label>
+			<input type="text" data-ng-model="name" class="form-control"/>
+		</div>	
+		<ul>
+			Name:<li data-ng-repeat="PersonName in names | filter:name | orderBy:'city'">{{PersonName.name | uppercase}} <br> {{PersonName.city | uppercase}}</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>
