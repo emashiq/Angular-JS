@@ -25,8 +25,9 @@
 	(function(angular) {
   'use strict';
 var myApp = angular.module('spicyApp1', []);
-
-myApp.controller('SpicyController', ['$scope', function($scope) {
+//Keep Controller Under Variable
+var controller={};
+controller.SpicyController=['$scope',function($scope) {
     $scope.spice = 'very';
 
     $scope.chiliSpicy = function() {
@@ -35,8 +36,9 @@ myApp.controller('SpicyController', ['$scope', function($scope) {
 
     $scope.jalapenoSpicy = function() {
         $scope.spice = 'jalapeño';
-    };
-}]);
+    };}];
+myApp.controller(controller);
+//Direct Assign Controller inside of app
 myApp.controller('SpicyController2', ['$scope', function($scope) {
     $scope.spice = 'very';
 
