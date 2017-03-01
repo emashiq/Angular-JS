@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+</head>
+
+<body ng-app="myApp" ng-controller="MainController">
+
+<p><a href="/">Main</a></p>
+
+<a class="btn btn-info" href="#/personalinfo">List View</a>
+<a class="btn btn-info" href="#/addinfo">Add New</a>
+
+<div ng-view></div>
+
+<script>
+    var app = angular.module("myApp", ["ngRoute"]);
+    //Angular JS Route Declare
+    app.config(function($routeProvider) {
+        $routeProvider
+            .when("/personalinfo", {
+                templateUrl : "Customer/cv.html",
+                controller:"MainController"
+            })
+            .when("/addinfo",{
+                templateUrl:"Customer/Add-New-Customer.html",
+                controller:"MainController"
+            });
+    });
+    //Angular JS Factory
+    app.factory('SimpleFactory',function ($scope) {
+        var information=[{name:'Ashiqur Rahman',city:'Dhaka'},
+            {name:'Ashiqur Rahman',city:'Dhaka'}
+        ];
+        var factory={};
+        factory.getInfo=function () {
+            return information;
+        };
+
+    });
+
+    //Angular JS Main Controller
+    app.controller('MainController',function($scope) {
+        $scope.info=SimpleFactory.getInfo();
+        $scope.addinfo=function () {
+
+            $scope.info.push({name:$scope.new.name,city:$scope.new.city});
+            $scope.new.name="";
+            $scope.new.city="";
+        };
+    });
+</script>
+<p>Developed By Ashiqur Rahman Emran</p>
+</body>
+</html>
