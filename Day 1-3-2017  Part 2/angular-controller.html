@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Example - example-controller-spicy-1-production</title>
+  <script src="../angular2.js"></script>
+</head>
+<!-- Declare your app first to work with angular controller -->
+<body ng-app="spicyApp1">
+<!-- First Controller which is also under ng app -->
+  <div ng-controller="SpicyController">
+ <button ng-click="chiliSpicy()">Chili</button>
+ <button ng-click="jalapenoSpicy()">Jalapeño</button>
+ <p>The food is {{spice}} spicy!</p>
+</div>
+<!-- First Controller End -->
+<!-- Second Controller which is also under ng app -->
+<div ng-controller="SpicyController2">
+ <button ng-click="chiliSpicy()">Chili</button>
+ <button ng-click="jalapenoSpicy()">Jalapeño</button>
+ <p>The food is {{spice}} spicy!</p>
+</div>
+<!-- Second Controller End -->
+<script type="text/javascript">
+	(function(angular) {
+  'use strict';
+var myApp = angular.module('spicyApp1', []);
+
+myApp.controller('SpicyController', ['$scope', function($scope) {
+    $scope.spice = 'very';
+
+    $scope.chiliSpicy = function() {
+        $scope.spice = 'chili';
+    };
+
+    $scope.jalapenoSpicy = function() {
+        $scope.spice = 'jalapeño';
+    };
+}]);
+myApp.controller('SpicyController2', ['$scope', function($scope) {
+    $scope.spice = 'very';
+
+    $scope.chiliSpicy = function() {
+        $scope.spice = 'chili';
+    };
+
+    $scope.jalapenoSpicy = function() {
+        $scope.spice = 'jalapeño';
+    };
+}]);
+})(window.angular);
+
+</script>
+</body>
+</html>
