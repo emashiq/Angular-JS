@@ -1,0 +1,15 @@
+<div class="container">
+	<h2>Add New Customer</h2>
+	Name:<input class="form-control" type="text" ng-model="new.name">
+	City:<input class="form-control" type="text" ng-model="new.city">
+	<button ng-click="addinfo()">Save</button>
+	{{new.name}}|{{new.city}}
+</div>
+<div class="container">
+
+	Search:<input class="form-control" type="text" ng-model="search">
+	<h2>List of Customers</h2>
+	<ul>
+		<li ng-repeat="infos in info |filter:search">{{infos.name}}|{{infos.city}}</li>
+	</ul>
+</div>
